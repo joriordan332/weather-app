@@ -20,9 +20,12 @@ weatherInput.value = '';
 function populateWeather(obj) {
 	const currentWeather = 
 	`Location: ${obj.location.name} 
+	Country: ${obj.location.country}
 	Time: ${obj.location.localtime}
 	Temp C: ${obj.current.temp_c} 
 	Temp F: ${obj.current.temp_f} 
+	Feels like C: ${obj.current.feelslike_c}
+	Feels like F: ${obj.current.feelslike_f}
 	Condition: ${obj.current.condition.text} ${obj.current.condition.icon}
 	Humidity: ${obj.current.humidity} 
 	Wind MPH: ${obj.current.wind_mph} 

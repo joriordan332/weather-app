@@ -9,7 +9,38 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <input class="weatherInput" type="text">
-  <button class="search">Search location</button>
+  <div class="container">
+    <nav class="navigation">
+      <section class="searchSection">
+        <input class="weatherInput" type="text">
+        <button class="search">Search location</button>
+      </section>
+      <section class="temperatureButtons">
+        <button class="celcius">°C</button>
+        <button class="fahrenheit">°F</button>
+      </section>
+    </nav>
+
+    <div class="main">
+      <section class="locationSection">
+        <h1 class="location">Acklam,</h1>
+        <h1 class="country">United Kingdom</h1>
+        <h2 class="dateAndTime"></h2>
+      </section>
+
+      <section class="temperatureSection">
+        <div class="temperature"></div>
+        <div class="temperatureDescription"></div>
+        <img class="weatherIcon" src="" alt="">
+        <div class="feelsLike">Feels like</div>
+      </section>
+
+      <section class="temperatureDetails">
+        <div class="humidity"Humidity></div>
+        <div class="wind">Wind</div>
+        <div class="chanceOfRain">Chance of rain</div>
+      </section>
+    </div>
+  </div>
 </body>
 </html>
