@@ -7,10 +7,25 @@ const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=847
 const weatherData = await response.json();
 console.log(weatherData);
 /*img.src = weatherData.*****.*****.***;*/
-
+populateWeather(weatherData)
 } catch (error){
 	console.log('Please enter a valid City');
 }
+
 weatherInput.value = '';
 });
 
+
+
+function populateWeather(obj) {
+	const currentWeather = 
+	`Location: ${obj.location.name} 
+	Time: ${obj.location.localtime}
+	Temp C: ${obj.current.temp_c} 
+	Temp F: ${obj.current.temp_f} 
+	Condition: ${obj.current.condition.text} ${obj.current.condition.icon}
+	Humidity: ${obj.current.humidity} 
+	Wind MPH: ${obj.current.wind_mph} 
+	Chance of rain: ${obj.forecast.forecastday[0].day.daily_chance_of_rain}%`;
+	console.log(currentWeather)
+}
