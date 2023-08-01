@@ -7,7 +7,8 @@ search.addEventListener('click', async () => {
 		const weatherData = await response.json();
 		console.log(weatherData);
 		/*img.src = weatherData.*****.*****.***;*/
-		populateWeather(weatherData)
+		populateWeather(weatherData);
+
 		} catch (error){
 			console.log('Please enter a valid City');
 		}
@@ -22,7 +23,8 @@ weatherInput.addEventListener('keyup', async (e) => {
 			const weatherData = await response.json();
 			console.log(weatherData);
 			/*img.src = weatherData.*****.*****.***;*/
-			populateWeather(weatherData)
+			populateWeather(weatherData);
+
 			} catch (error){
 				console.log('Please enter a valid City');
 			}
@@ -37,33 +39,64 @@ window.onload = async () => {
 		const weatherData = await response.json();
 		console.log(weatherData);
 		/*img.src = weatherData.*****.*****.***;*/
-		populateWeather(weatherData)
+		populateWeather(weatherData);
+
 		} catch (error){
 			console.log('Please enter a valid City');
 		}
-
-weatherInput.value = '';
 };
 
 
 function populateWeather(obj) {
 	const currentWeather = {
-	location: `${obj.location.name}`, 
-	country: `${obj.location.country}`,
+	location: `${obj.location.name}, ${obj.location.country}`, 
+
 	time: `${obj.location.localtime}`,
 	temp_C: `${obj.current.temp_c}°C`, 
 	temp_F: `${obj.current.temp_f}°F`,
-	feels_like_C: `${obj.current.feelslike_c}`,
-	feels_like_F: `${obj.current.feelslike_f}`,
+	feels_like_C: `${obj.current.feelslike_c}°C`,
+	feels_like_F: `${obj.current.feelslike_f}°F`,
 	condition: `${obj.current.condition.text}`,
-	condition_icon: `${obj.current.condition.icon}`,
+	condition_icon: `https:${obj.current.condition.icon}`,
 	humidity: `${obj.current.humidity}`, 
-	wind_MPH: `${obj.current.wind_mph}`, 
+	wind_MPH: `${obj.current.wind_mph}MPH`, 
 	chance_of_rain: `${obj.forecast.forecastday[0].day.daily_chance_of_rain}%`
 	}
+
 	
-
 	const temperature = document.querySelector('.temperature');
-	temperature.textContent = currentWeather.temp_C
+	temperature.textContent = currentWeather.temp_C;
 
+	const temperatureDescription = document.querySelector('.temperatureDescription');
+	temperatureDescription.textContent = currentWeather.condition;
+
+
+	const location = document.querySelector('.location');
+	location.textContent = currentWeather.location;
+
+
+	const dateAndTime = document.querySelector('.dateAndTime');
+	dateAndTime.textContent = currentWeather.time;
+
+	const weatherIcon = document.querySelector('.weatherIcon');
+	weatherIcon.src = currentWeather.condition_icon;
+
+	const feelsLike = document.querySelector('.feelsLike');
+	feelsLike.textContent = `Feels like ${currentWeather.feels_like_C}`;
+
+	const humidity = document.querySelector('.humidity');
+	humidity.textContent = currentWeather.humidity;
+
+	const wind = document.querySelector('.wind');
+	wind.textContent = currentWeather.wind_MPH;
+
+	const chanceOfRain = document.querySelector('.chanceOfRain');
+	chanceOfRain.textContent = currentWeather.chance_of_rain;
+
+
+
+}
+
+function appendWeatherData(){
+	
 }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Weather App</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 </head>
@@ -12,8 +12,8 @@
   <div class="container">
     <nav class="navigation">
       <section class="searchSection">
-        <input class="weatherInput" type="text">
-        <button class="search">Search location</button>
+        <input class="weatherInput" type="text" placeholder="Search location"> 
+        <svg class="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>magnify</title><path d="M9.5,4C13.09,4 16,6.91 16,10.5C16,12.12 15.41,13.6 14.43,14.73L20.08,20.38L19.37,21.09L13.72,15.44C12.59,16.41 11.11,17 9.5,17C5.91,17 3,14.09 3,10.5C3,6.91 5.91,4 9.5,4M9.5,5C6.46,5 4,7.46 4,10.5C4,13.54 6.46,16 9.5,16C12.54,16 15,13.54 15,10.5C15,7.46 12.54,5 9.5,5Z" /></svg>
       </section>
     </nav>
     <section class="temperatureButtons">
@@ -22,22 +22,30 @@
     </section>
     <div class="main">
       <section class="locationSection">
-        <h1 class="location">Acklam,</h1>
-        <h1 class="country">United Kingdom</h1>
+        <h1 class="location"></h1>
         <h2 class="dateAndTime"></h2>
       </section>
 
       <section class="temperatureSection">
-        <div class="temperature"></div>
         <img class="weatherIcon" src="" alt="">
+        <div class="temperature"></div>
         <div class="temperatureDescription"></div>
-        <div class="feelsLike">Feels like</div>
+        <div class="feelsLike"></div>
       </section>
 
       <section class="temperatureDetails">
-        <div class="humidity"Humidity></div>
-        <div class="wind">Wind</div>
-        <div class="chanceOfRain">Chance of rain</div>
+        <div class="humidity-details">
+          <p class="temperatureTitles">Humidity</p> 
+          <div class="humidity"></div>
+        </div>
+        <div class="wind-details">
+          <p class="temperatureTitles">Wind</p> 
+          <div class="wind"></div>
+        </div>
+        <div class="rain-details">
+          <p class="temperatureTitles">Chance of rain</p> 
+          <div class="chanceOfRain"></div>
+        </div>
       </section>
     </div>
   </div>
