@@ -58,11 +58,11 @@ function populateWeather(obj) {
 	condition: `${obj.current.condition.text}`,
 	condition_icon: `https:${obj.current.condition.icon}`,
 	humidity: `${obj.current.humidity}%`, 
-	wind_MPH: `${obj.current.wind_mph}MPH`, 
+	wind_MPH: `${obj.current.wind_mph} MPH`, 
 	chance_of_rain: `${obj.forecast.forecastday[0].day.daily_chance_of_rain}%`,
 	sunrise: `${obj.forecast.forecastday[0].astro.sunrise}`,
 	sunset: `${obj.forecast.forecastday[0].astro.sunset}`,
-	cloudiness: `${obj.current.cloud}`,
+	cloudiness: `${obj.current.cloud}%`,
 	max_c: `${obj.forecast.forecastday[0].day.maxtemp_c}`,
 	max_f: `${obj.forecast.forecastday[0].day.maxtemp_f}`,
 	min_c: `${obj.forecast.forecastday[0].day.mintemp_c}`,
@@ -117,6 +117,8 @@ function populateWeather(obj) {
 	const fahrenheit = document.querySelector('.fahrenheit');
 
 	fahrenheit.addEventListener('click', () => {
+		fahrenheit.className = 'fahrenheit active';
+		celcius.className = 'celcius';
 		let getFahrenheit = parseInt(currentWeather.temp_F);
 		temperature.textContent = `${getFahrenheit}°F`
 		feelsLike.textContent = `Feels like ${currentWeather.feels_like_F}`;
@@ -125,6 +127,8 @@ function populateWeather(obj) {
 	})
 
 	celcius.addEventListener('click', () => {
+		fahrenheit.className = 'fahrenheit';
+		celcius.className = 'celcius active';
 		let getCelcius = parseInt(currentWeather.temp_C);
 		temperature.textContent = `${getCelcius}°C`;
 		feelsLike.textContent = `Feels like ${currentWeather.feels_like_C}`;

@@ -50,13 +50,23 @@ input:focus {
     filter: brightness(0) invert(1);
     width: 20px;
     height: 20px;
+    cursor: pointer;
     
 }
 .celcius, .fahrenheit {
     width: 75px;
-    border: 2px solid white;
-
+    cursor: pointer;
+    border: none;
 }
+
+.celcius.active {
+    border: 2px solid white;
+}
+
+.fahrenheit.active {
+    border: 2px solid white;
+}
+
 .main {
     display: grid;
     grid-column: 2 / 3;
