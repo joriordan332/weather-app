@@ -51,8 +51,8 @@ input:focus {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    
 }
+
 .celcius, .fahrenheit {
     width: 75px;
     cursor: pointer;

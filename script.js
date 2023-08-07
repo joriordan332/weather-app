@@ -1,16 +1,15 @@
 const weatherInput = document.querySelector('.weatherInput');
 const search = document.querySelector('.search');
+const errorMessage = document.querySelector('.error');
 
 search.addEventListener('click', async () => {
 	try {
 		const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=847c030025fe4efa829142248232707&q='${weatherInput.value}&days=1&aqi=no&alerts=no'`, {mode: 'cors'});
 		const weatherData = await response.json();
-		console.log(weatherData);
-		/*img.src = weatherData.*****.*****.***;*/
+		errorMessage.textContent = '';
 		populateWeather(weatherData);
-
 		} catch (error){
-			console.log('Please enter a valid City');
+			errorMessage.textContent = 'Location not found. Please enter a valid city'
 		}
 
 weatherInput.value = '';
@@ -21,12 +20,10 @@ weatherInput.addEventListener('keyup', async (e) => {
 		try {
 			const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=847c030025fe4efa829142248232707&q='${weatherInput.value}&days=1&aqi=no&alerts=no'`, {mode: 'cors'});
 			const weatherData = await response.json();
-			console.log(weatherData);
-			/*img.src = weatherData.*****.*****.***;*/
+			errorMessage.textContent = '';
 			populateWeather(weatherData);
-
 			} catch (error){
-				console.log('Please enter a valid City');
+				errorMessage.textContent = 'Location not found. Please enter a valid city'
 			}
 
 weatherInput.value = '';
@@ -37,12 +34,10 @@ window.onload = async () => {
 	try {
 		const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=847c030025fe4efa829142248232707&q='Acklam&days=1&aqi=no&alerts=no'`, {mode: 'cors'});
 		const weatherData = await response.json();
-		console.log(weatherData);
-		/*img.src = weatherData.*****.*****.***;*/
 		populateWeather(weatherData);
 
 		} catch (error){
-			console.log('Please enter a valid City');
+			errorMessage.textContent = 'Location not found. Please enter a valid city'
 		}
 };
 
