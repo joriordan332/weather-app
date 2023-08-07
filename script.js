@@ -50,7 +50,6 @@ window.onload = async () => {
 function populateWeather(obj) {
 	const currentWeather = {
 	location: `${obj.location.name}, ${obj.location.country}`, 
-
 	time: `${obj.location.localtime}`,
 	temp_C: `${obj.current.temp_c}°C`, 
 	temp_F: `${obj.current.temp_f}°F`,
@@ -58,22 +57,28 @@ function populateWeather(obj) {
 	feels_like_F: `${obj.current.feelslike_f}°F`,
 	condition: `${obj.current.condition.text}`,
 	condition_icon: `https:${obj.current.condition.icon}`,
-	humidity: `${obj.current.humidity}`, 
+	humidity: `${obj.current.humidity}%`, 
 	wind_MPH: `${obj.current.wind_mph}MPH`, 
-	chance_of_rain: `${obj.forecast.forecastday[0].day.daily_chance_of_rain}%`
+	chance_of_rain: `${obj.forecast.forecastday[0].day.daily_chance_of_rain}%`,
+	sunrise: `${obj.forecast.forecastday[0].astro.sunrise}`,
+	sunset: `${obj.forecast.forecastday[0].astro.sunset}`,
+	cloudiness: `${obj.current.cloud}`,
+	max_c: `${obj.forecast.forecastday[0].day.maxtemp_c}`,
+	max_f: `${obj.forecast.forecastday[0].day.maxtemp_f}`,
+	min_c: `${obj.forecast.forecastday[0].day.mintemp_c}`,
+	min_f: `${obj.forecast.forecastday[0].day.mintemp_f}`,
 	}
-
+	
 	
 	const temperature = document.querySelector('.temperature');
-	temperature.textContent = currentWeather.temp_C;
+	let getCelcius = parseInt(currentWeather.temp_C);
+	temperature.textContent = `${getCelcius}°C`;
 
 	const temperatureDescription = document.querySelector('.temperatureDescription');
 	temperatureDescription.textContent = currentWeather.condition;
 
-
 	const location = document.querySelector('.location');
 	location.textContent = currentWeather.location;
-
 
 	const dateAndTime = document.querySelector('.dateAndTime');
 	dateAndTime.textContent = currentWeather.time;
@@ -93,10 +98,39 @@ function populateWeather(obj) {
 	const chanceOfRain = document.querySelector('.chanceOfRain');
 	chanceOfRain.textContent = currentWeather.chance_of_rain;
 
+	const sunrise = document.querySelector('.sunrise');
+	sunrise.textContent = currentWeather.sunrise;
 
+	const sunset = document.querySelector('.sunset');
+	sunset.textContent = currentWeather.sunset;
 
-}
+	const cloudiness = document.querySelector('.cloudiness');
+	cloudiness.textContent = currentWeather.cloudiness;
 
-function appendWeatherData(){
-	
+	const minTemp = document.querySelector('.minTemp');
+	minTemp.textContent = `L: ${currentWeather.min_c}`;
+
+	const maxTemp = document.querySelector('.maxTemp');
+	maxTemp.textContent = `H: ${currentWeather.max_c}`;
+
+	const celcius = document.querySelector('.celcius');
+	const fahrenheit = document.querySelector('.fahrenheit');
+
+	fahrenheit.addEventListener('click', () => {
+		let getFahrenheit = parseInt(currentWeather.temp_F);
+		temperature.textContent = `${getFahrenheit}°F`
+		feelsLike.textContent = `Feels like ${currentWeather.feels_like_F}`;
+		minTemp.textContent = `L: ${currentWeather.min_f}`;
+		maxTemp.textContent = `H: ${currentWeather.max_f}`;
+	})
+
+	celcius.addEventListener('click', () => {
+		let getCelcius = parseInt(currentWeather.temp_C);
+		temperature.textContent = `${getCelcius}°C`;
+		feelsLike.textContent = `Feels like ${currentWeather.feels_like_C}`;
+		minTemp.textContent = `L: ${currentWeather.min_c}`;
+		maxTemp.textContent = `H: ${currentWeather.max_c}`;
+		
+	})
+
 }
