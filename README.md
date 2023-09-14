@@ -1,4 +1,4 @@
-# Weather APP
+# Weather App
 https://joriordan332.github.io/weather-app/
 
 This is weather app that shows the current weather forecast of the location of the users choosing. The default location is Acklam which is my location but the user can search anywhere in the world and it will display numerous features about the weather such as chance of rain, sunrise and sunset etc.
