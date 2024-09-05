@@ -121,7 +121,7 @@ weatherInput.addEventListener('keyup', async (e) => {
 
 window.onload = async () => {
   try {
-    const response = await fetch('http://api.weatherapi.com/v1/forecast.json?key=847c030025fe4efa829142248232707&q=\'Acklam&days=1&aqi=no&alerts=no\'', { mode: 'cors' });
+    const response = await fetch('https://api.weatherapi.com/v1/forecast.json?key=847c030025fe4efa829142248232707&q=\'Acklam&days=1&aqi=no&alerts=no\'', { mode: 'cors' });
     const weatherData = await response.json();
     populateWeather(weatherData);
   } catch (error) {
